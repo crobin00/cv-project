@@ -1,0 +1,10 @@
+.cardInfo {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  width: 550px;
+  font-size: 1.2em;
+}
+
+.cardInfo input {
+  font-size: 1.3em;
+  width: 100%;
+}
