@@ -3,6 +3,7 @@ import CardInfo from './CardInfo';
 import SubmitButton from './SubmitButton';
 import WorkExperienceTab from './WorkExperienceTab';
 import { useState } from 'react';
+import uniqid from 'uniqid';
 
 const WorkExperience = () => {
   const [workExperienceArray, setWorkExperienceArray] = useState([]);
@@ -19,7 +20,7 @@ const WorkExperience = () => {
     setWorkExperienceArray([
       ...workExperienceArray,
       {
-        id: workExperienceArray.length + 1,
+        id: uniqid(),
         jobTitle: jobTitle,
         city: city,
         companyName: companyName,
@@ -45,7 +46,7 @@ const WorkExperience = () => {
   };
 
   const editHandler = (id) => {
-    /*workExperienceArray.forEach((item) => {
+    workExperienceArray.forEach((item) => {
       if (item.id === id) {
         setJobTitle(item.jobTitle);
         setCity(item.city);
@@ -55,8 +56,7 @@ const WorkExperience = () => {
         setResponsibilities(item.responsibilities);
       }
     });
-    deleteHandler(id);*/
-    console.log('edit', id);
+    deleteHandler(id);
   };
 
   return (
