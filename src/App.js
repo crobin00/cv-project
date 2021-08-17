@@ -3,6 +3,8 @@ import Dropdown from './components/Dropdown';
 import PersonalInformation from './components/PersonalInformation';
 import WorkExperience from './components/WorkExperience';
 import Education from './components/Education';
+import PreviewPDF from './components/PreviewPDF';
+import { PDFViewer } from '@react-pdf/renderer';
 import './styles/App.css';
 import { FaCheckSquare, FaEdit } from 'react-icons/fa';
 import { useState } from 'react';
@@ -11,7 +13,7 @@ function App() {
   const [editPage, setEditPage] = useState(true);
   const [workExperienceArray, setWorkExperienceArray] = useState([]);
   const [educationArray, setEducationArray] = useState([]);
-  const [PersonalInformationArray, setPersonalInformationArray] = useState([]);
+  const [personalInformationArray, setPersonalInformationArray] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -29,7 +31,7 @@ function App() {
       email: email,
     });
     setEditPage(() => !editPage);
-    console.log(PersonalInformationArray);
+    console.log(personalInformationArray);
   };
 
   return (
@@ -78,7 +80,15 @@ function App() {
           }
         />
       </div>
-      <div style={!editPage ? { display: 'block' } : { display: 'none' }}></div>
+      <div style={!editPage ? { display: 'block' } : { display: 'none' }}>
+        <PDFViewer style={{ width: '100vw', height: '100vh' }}>
+          <PreviewPDF
+            personalInformation={personalInformationArray}
+            workExperience={workExperienceArray}
+            education={educationArray}
+          />
+        </PDFViewer>
+      </div>
     </div>
   );
 }
