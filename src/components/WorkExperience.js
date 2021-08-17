@@ -5,8 +5,7 @@ import WorkAndEducationTab from './WorkAndEducationTab';
 import { useState } from 'react';
 import uniqid from 'uniqid';
 
-const WorkExperience = () => {
-  const [workExperienceArray, setWorkExperienceArray] = useState([]);
+const WorkExperience = (props) => {
   const [jobTitle, setJobTitle] = useState('');
   const [city, setCity] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -17,8 +16,8 @@ const WorkExperience = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setWorkExperienceArray([
-      ...workExperienceArray,
+    props.setWorkExperienceArray([
+      ...props.workExperienceArray,
       {
         id: uniqid(),
         jobTitle: jobTitle,
@@ -36,17 +35,17 @@ const WorkExperience = () => {
     setStartDate('');
     setEndDate('');
     setResponsibilities('');
-    console.log(workExperienceArray);
+    console.log(props.workExperienceArray);
   };
 
   const deleteHandler = (id) => {
-    setWorkExperienceArray(
-      workExperienceArray.filter((item) => item.id !== id)
+    props.setWorkExperienceArray(
+      props.workExperienceArray.filter((item) => item.id !== id)
     );
   };
 
   const editHandler = (id) => {
-    workExperienceArray.forEach((item) => {
+    props.workExperienceArray.forEach((item) => {
       if (item.id === id) {
         setJobTitle(item.jobTitle);
         setCity(item.city);
@@ -61,7 +60,7 @@ const WorkExperience = () => {
 
   return (
     <CardInfo>
-      {workExperienceArray.map((item) => (
+      {props.workExperienceArray.map((item) => (
         <WorkAndEducationTab
           key={item.id}
           title={item.jobTitle}

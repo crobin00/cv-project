@@ -5,8 +5,7 @@ import SubmitButton from './SubmitButton';
 import { useState } from 'react';
 import uniqid from 'uniqid';
 
-const Education = () => {
-  const [educationArray, setEducationArray] = useState([]);
+const Education = (props) => {
   const [degree, setDegree] = useState('');
   const [city, setCity] = useState('');
   const [institution, setInstitution] = useState('');
@@ -16,8 +15,8 @@ const Education = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setEducationArray([
-      ...educationArray,
+    props.setEducationArray([
+      ...props.educationArray,
       {
         id: uniqid(),
         degree: degree,
@@ -33,15 +32,17 @@ const Education = () => {
     setInstitution('');
     setStartDate('');
     setEndDate('');
-    console.log(educationArray);
+    console.log(props.educationArray);
   };
 
   const deleteHandler = (id) => {
-    setEducationArray(educationArray.filter((item) => item.id !== id));
+    props.setEducationArray(
+      props.educationArray.filter((item) => item.id !== id)
+    );
   };
 
   const editHandler = (id) => {
-    educationArray.forEach((item) => {
+    props.educationArray.forEach((item) => {
       if (item.id === id) {
         setDegree(item.degree);
         setCity(item.city);
@@ -55,7 +56,7 @@ const Education = () => {
 
   return (
     <CardInfo>
-      {educationArray.map((item) => (
+      {props.educationArray.map((item) => (
         <WorkAndEducationTab
           key={item.id}
           title={item.degree}
