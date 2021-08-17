@@ -1,0 +1,17 @@
+.tab {
+  display: flex;
+  justify-content: space-between;
+  background: lightgrey;
+  width: 95%;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 17%;
+}
+
+.tab div {
+  margin: 10px;
+}

@@ -3,3 +3,8 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
 }
+
+textarea {
+  width: 100%;
+  resize: none;
+}

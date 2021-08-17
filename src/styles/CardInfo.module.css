@@ -1,4 +1,7 @@
 .cardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   width: 550px;
   font-size: 1.2em;
@@ -7,4 +10,13 @@
 .cardInfo input {
   font-size: 1.3em;
   width: 100%;
+  padding: 2px 6px;
+}
+
+.cardInfo div {
+  margin: 10px 0;
+}
+
+.cardInfo form {
+  width: 95%;
 }
