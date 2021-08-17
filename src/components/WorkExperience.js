@@ -1,7 +1,7 @@
 import WorkAndEducation from './WorkAndEducation';
 import CardInfo from './CardInfo';
 import SubmitButton from './SubmitButton';
-import WorkExperienceTab from './WorkExperienceTab';
+import WorkAndEducationTab from './WorkAndEducationTab';
 import { useState } from 'react';
 import uniqid from 'uniqid';
 
@@ -62,7 +62,7 @@ const WorkExperience = () => {
   return (
     <CardInfo>
       {workExperienceArray.map((item) => (
-        <WorkExperienceTab
+        <WorkAndEducationTab
           key={item.id}
           title={item.jobTitle}
           startDate={item.startDate}

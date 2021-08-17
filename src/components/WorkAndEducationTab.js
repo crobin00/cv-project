@@ -1,7 +1,7 @@
-import classes from '../styles/WorkExperienceTab.module.css';
+import classes from '../styles/WorkAndEducationTab.module.css';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
 
-const WorkExperienceTab = (props) => {
+const WorkAndEducationTab = (props) => {
   return (
     <div className={classes.tab}>
       <div>
@@ -18,4 +18,4 @@ const WorkExperienceTab = (props) => {
   );
 };
 
-export default WorkExperienceTab;
+export default WorkAndEducationTab;
