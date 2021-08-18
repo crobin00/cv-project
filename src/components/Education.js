@@ -32,7 +32,6 @@ const Education = (props) => {
     setInstitution('');
     setStartDate('');
     setEndDate('');
-    console.log(props.educationArray);
   };
 
   const deleteHandler = (id) => {

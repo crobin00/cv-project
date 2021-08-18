@@ -35,7 +35,6 @@ const WorkExperience = (props) => {
     setStartDate('');
     setEndDate('');
     setResponsibilities('');
-    console.log(props.workExperienceArray);
   };
 
   const deleteHandler = (id) => {

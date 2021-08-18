@@ -34,7 +34,6 @@ function App() {
       email: email,
     });
     setEditPage(() => !editPage);
-    console.log(personalInformationArray);
   };
 
   return (
