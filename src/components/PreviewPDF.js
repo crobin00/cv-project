@@ -1,19 +1,52 @@
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  Font,
+  Image,
+} from '@react-pdf/renderer';
+import OpenSans from '../styles/fonts/OpenSans-Regular.ttf';
+import OpenSansBold from '../styles/fonts/OpenSans-Bold.ttf';
+import Briefcase from '../styles/images/briefcase.png';
+import Graduationcap from '../styles/images/graduation-cap.png';
+
+Font.register({
+  family: 'Open Sans',
+  fonts: [
+    {
+      src: OpenSans,
+    },
+    {
+      src: OpenSansBold,
+      fontWeight: 'bold',
+    },
+  ],
+});
 
 const styles = StyleSheet.create({
   page: {
     margin: '15',
-  },
-  section: {
-    flexGrow: 1,
+    fontFamily: 'Open Sans',
   },
   nameHeader: {
     fontSize: '34',
     flexDirection: 'row',
   },
-  infoHeader: {
-    fontSize: '24',
+  info: {
+    fontSize: '16',
     flexDirection: 'row',
+  },
+  caseIcon: {
+    width: '20',
+    height: '20',
+    marginRight: '10',
+  },
+  capIcon: {
+    width: '27',
+    height: '27',
+    marginRight: '10',
   },
 });
 
@@ -21,53 +54,108 @@ const PreviewPDF = (props) => {
   return (
     <Document onRender={() => console.log('rendered')}>
       <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <View style={styles.nameHeader}>
-            <Text>{props.personalInformation.firstName}</Text>
-            <Text style={{ marginLeft: '10' }}>
-              {props.personalInformation.lastName}
-            </Text>
-          </View>
-          <View style={styles.infoHeader}>
-            <View>
-              <Text>
-                <Text>Phone</Text>
-                {props.personalInformation.phoneNumber}
+        <View style={{ marginBottom: '20' }}>
+          {/* Name */}
+          <View>
+            <View style={styles.nameHeader}>
+              <Text>{props.personalInformation.firstName}</Text>
+              <Text style={{ marginLeft: '10', marginBottom: '20' }}>
+                {props.personalInformation.lastName}
               </Text>
+            </View>
 
-              <Text>
-                <Text>Address</Text>
-                {props.personalInformation.city},
-                <Text>{props.personalInformation.state}</Text>
-              </Text>
-            </View>
-            <View>
-              <Text>
-                <Text>Email</Text>
-                {props.personalInformation.email}
-              </Text>
+            {/* Phone Number */}
+            <View style={styles.info}>
+              <View>
+                <View style={styles.info}>
+                  <View>
+                    <Text
+                      style={{
+                        fontWeight: 'bold',
+                        marginRight: '10',
+                        marginBottom: '5',
+                      }}
+                    >
+                      Phone
+                    </Text>
+                  </View>
+                  <View>
+                    <Text>{props.personalInformation.phoneNumber}</Text>
+                  </View>
+                </View>
+
+                {/* City */}
+                <View style={styles.info}>
+                  <View>
+                    <Text style={{ fontWeight: 'bold', marginRight: '10' }}>
+                      Address
+                    </Text>
+                  </View>
+                  <View>
+                    <Text>{props.personalInformation.city}</Text>
+                  </View>
+                </View>
+              </View>
+
+              {/* Email */}
+              <View style={[styles.info, { marginLeft: '20' }]}>
+                <View>
+                  <Text style={{ fontWeight: 'bold', marginRight: '10' }}>
+                    Email
+                  </Text>
+                </View>
+                <View>
+                  <Text>{props.personalInformation.email}</Text>
+                </View>
+              </View>
             </View>
           </View>
-          {props.workExperience.map((item) => (
-            <View key={item.id}>
-              <Text>{item.jobTitle}</Text>
-              <Text>{item.city}</Text>
-              <Text>{item.companyName}</Text>
-              <Text>{item.startDate}</Text>
-              <Text>{item.endDate}</Text>
-              <Text>{item.responsibilties}</Text>
-            </View>
-          ))}
-          {props.education.map((item) => (
-            <View key={item.id}>
-              <Text>{item.degree}</Text>
-              <Text>{item.city}</Text>
-              <Text>{item.institution}</Text>
-              <Text>{item.startDate}</Text>
-              <Text>{item.endDate}</Text>
-            </View>
-          ))}
         </View>
+
+        <View style={[styles.info, { marginBottom: '5' }]}>
+          <Image src={Briefcase} style={styles.caseIcon}></Image>
+          <Text>Work Experience</Text>
+        </View>
+
+        {/* Work Experience */}
+        {props.workExperience.map((item) => (
+          <View key={item.id} style={[styles.info, { marginBottom: '20' }]}>
+            <View>
+              <Text style={{ marginBottom: '5' }}>{item.startDate} - </Text>
+              <Text style={{ marginBottom: '5' }}>{item.endDate}</Text>
+            </View>
+            <View style={{ marginLeft: '20' }}>
+              <Text style={{ fontWeight: 'bold', marginBottom: '5' }}>
+                {item.jobTitle}
+              </Text>
+              <Text style={{ marginBottom: '5' }}>{item.city}</Text>
+              <Text style={{ marginBottom: '5' }}>{item.companyName}</Text>
+              <Text style={{ marginBottom: '5' }}>{item.responsibilities}</Text>
+            </View>
+          </View>
+        ))}
+
+        <View style={[styles.info, { marginBottom: '5' }]}>
+          <Image src={Graduationcap} style={styles.capIcon}></Image>
+          <Text>Education</Text>
+        </View>
+
+        {/* Education */}
+        {props.education.map((item) => (
+          <View key={item.id} style={[styles.info, { marginBottom: '20' }]}>
+            <View>
+              <Text style={{ marginBottom: '5' }}>{item.startDate} - </Text>
+              <Text>{item.endDate}</Text>
+            </View>
+            <View style={{ marginLeft: '20' }}>
+              <Text style={{ fontWeight: 'bold', marginBottom: '5' }}>
+                {item.degree}
+              </Text>
+              <Text style={{ marginBottom: '5' }}>{item.city}</Text>
+              <Text style={{ marginBottom: '5' }}>{item.institution}</Text>
+            </View>
+          </View>
+        ))}
       </Page>
     </Document>
   );
