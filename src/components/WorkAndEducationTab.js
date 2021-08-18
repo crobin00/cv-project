@@ -1,5 +1,6 @@
 import classes from '../styles/WorkAndEducationTab.module.css';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
+import { format } from 'date-fns';
 
 const WorkAndEducationTab = (props) => {
   return (
@@ -7,7 +8,8 @@ const WorkAndEducationTab = (props) => {
       <div>
         <h4>{props.title}</h4>
         <p>
-          {props.startDate} - {props.endDate}
+          {format(new Date(props.startDate), 'MM/yyyy')} -{' '}
+          {format(new Date(props.endDate), 'MM/yyyy')}
         </p>
       </div>
       <div className={classes.icons}>

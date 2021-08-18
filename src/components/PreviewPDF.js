@@ -11,6 +11,7 @@ import OpenSans from '../styles/fonts/OpenSans-Regular.ttf';
 import OpenSansBold from '../styles/fonts/OpenSans-Bold.ttf';
 import Briefcase from '../styles/images/briefcase.png';
 import Graduationcap from '../styles/images/graduation-cap.png';
+import { format } from 'date-fns';
 
 Font.register({
   family: 'Open Sans',
@@ -127,8 +128,12 @@ const PreviewPDF = (props) => {
         {props.workExperience.map((item) => (
           <View key={item.id} style={[styles.info, { marginBottom: '20' }]}>
             <View>
-              <Text style={{ marginBottom: '5' }}>{item.startDate} - </Text>
-              <Text style={{ marginBottom: '5' }}>{item.endDate}</Text>
+              <Text style={{ marginBottom: '5' }}>
+                {format(new Date(item.startDate), 'MM/yyyy')} -{' '}
+              </Text>
+              <Text style={{ marginBottom: '5' }}>
+                {format(new Date(item.endDate), 'MM/yyyy')}
+              </Text>
             </View>
             <View style={{ marginLeft: '20' }}>
               <Text style={{ fontWeight: 'bold', marginBottom: '5' }}>
@@ -154,8 +159,10 @@ const PreviewPDF = (props) => {
         {props.education.map((item) => (
           <View key={item.id} style={[styles.info, { marginBottom: '20' }]}>
             <View>
-              <Text style={{ marginBottom: '5' }}>{item.startDate} - </Text>
-              <Text>{item.endDate}</Text>
+              <Text style={{ marginBottom: '5' }}>
+                {format(new Date(item.startDate), 'MM/yyyy')} -{' '}
+              </Text>
+              <Text>{format(new Date(item.endDate), 'MM/yyyy')}</Text>
             </View>
             <View style={{ marginLeft: '20' }}>
               <Text style={{ fontWeight: 'bold', marginBottom: '5' }}>
