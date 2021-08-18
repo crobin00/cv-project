@@ -71,7 +71,7 @@ const Education = (props) => {
           firstInput="Degree"
           firstInputChange={(e) => setDegree(e.target.value)}
           firstValue={degree}
-          secondInput="City/Town"
+          secondInput="City/State"
           secondInputChange={(e) => setCity(e.target.value)}
           secondValue={city}
           thirdInput="Institution"

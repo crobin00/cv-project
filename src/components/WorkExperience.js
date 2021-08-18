@@ -75,7 +75,7 @@ const WorkExperience = (props) => {
           firstInput="Job Title"
           firstInputChange={(e) => setJobTitle(e.target.value)}
           firstValue={jobTitle}
-          secondInput="City/Town"
+          secondInput="City/State"
           secondInputChange={(e) => setCity(e.target.value)}
           secondValue={city}
           thirdInput="Company Name"

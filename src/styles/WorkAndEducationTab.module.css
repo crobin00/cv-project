@@ -1,7 +1,7 @@
 .tab {
   display: flex;
   justify-content: space-between;
-  background: lightgrey;
+  background: rgba(211, 211, 211, 0.288);
   width: 95%;
 }
 
@@ -10,6 +10,11 @@
   justify-content: space-around;
   align-items: center;
   width: 17%;
+}
+
+.tab h4,
+.tab p {
+  margin: 3px;
 }
 
 .tab div {
