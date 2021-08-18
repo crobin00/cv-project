@@ -27,12 +27,14 @@ Font.register({
 
 const styles = StyleSheet.create({
   page: {
-    margin: '15',
+    margin: '20 35',
     fontFamily: 'Open Sans',
   },
   nameHeader: {
     fontSize: '34',
     flexDirection: 'row',
+    fontWeight: 'bold',
+    color: '#187EAE',
   },
   info: {
     fontSize: '16',
@@ -114,7 +116,11 @@ const PreviewPDF = (props) => {
 
         <View style={[styles.info, { marginBottom: '5' }]}>
           <Image src={Briefcase} style={styles.caseIcon}></Image>
-          <Text>Work Experience</Text>
+          <Text
+            style={{ color: '#187EAE', fontWeight: 'bold', fontSize: '20' }}
+          >
+            Work Experience
+          </Text>
         </View>
 
         {/* Work Experience */}
@@ -137,7 +143,11 @@ const PreviewPDF = (props) => {
 
         <View style={[styles.info, { marginBottom: '5' }]}>
           <Image src={Graduationcap} style={styles.capIcon}></Image>
-          <Text>Education</Text>
+          <Text
+            style={{ color: '#187EAE', fontWeight: 'bold', fontSize: '20' }}
+          >
+            Education
+          </Text>
         </View>
 
         {/* Education */}
@@ -151,8 +161,8 @@ const PreviewPDF = (props) => {
               <Text style={{ fontWeight: 'bold', marginBottom: '5' }}>
                 {item.degree}
               </Text>
-              <Text style={{ marginBottom: '5' }}>{item.city}</Text>
               <Text style={{ marginBottom: '5' }}>{item.institution}</Text>
+              <Text style={{ marginBottom: '5' }}>{item.city}</Text>
             </View>
           </View>
         ))}

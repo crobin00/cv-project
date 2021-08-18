@@ -27,7 +27,7 @@ function App() {
       id: 1,
       degree: 'Test Degree',
       city: 'Test City',
-      institution: 'These are my responsibilities',
+      institution: 'Australia University',
       startDate: '1/1/00',
       endDate: '1/2/00',
     },
@@ -44,6 +44,9 @@ function App() {
   const [city, setCity] = useState('Sydney');
   const [state, setState] = useState('Australia');
   const [email, setEmail] = useState('johndoe@email.com');
+  const [personalVisible, setPersonalVisible] = useState(false);
+  const [workVisible, setWorkVisible] = useState(false);
+  const [educationVisible, setEducationVisible] = useState(false);
 
   const handleClick = (e) => {
     setPersonalInformationArray({
@@ -68,6 +71,8 @@ function App() {
       <div style={editPage ? { display: 'block' } : { display: 'none' }}>
         <Dropdown
           title="Personal Info"
+          setVisibility={() => setPersonalVisible(!personalVisible)}
+          visible={personalVisible}
           content={
             <PersonalInformation
               firstName={firstName}
@@ -87,6 +92,8 @@ function App() {
         />
         <Dropdown
           title="Work Experience"
+          setVisibility={() => setWorkVisible(!workVisible)}
+          visible={workVisible}
           content={
             <WorkExperience
               workExperienceArray={workExperienceArray}
@@ -96,6 +103,8 @@ function App() {
         />
         <Dropdown
           title="Education"
+          setVisibility={() => setEducationVisible(!educationVisible)}
+          visible={educationVisible}
           content={
             <Education
               educationArray={educationArray}
@@ -104,7 +113,13 @@ function App() {
           }
         />
       </div>
-      <div style={!editPage ? { display: 'block' } : { display: 'none' }}>
+      <div
+        style={
+          !editPage
+            ? { display: 'block', marginTop: '30px' }
+            : { display: 'none' }
+        }
+      >
         <PDFViewer style={{ width: '100vw', height: '100vh' }}>
           <PreviewPDF
             personalInformation={personalInformationArray}
