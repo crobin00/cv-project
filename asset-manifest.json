@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cv-project/static/css/main.f6edb811.chunk.css",
+    "main.js": "/cv-project/static/js/main.8e560140.chunk.js",
+    "main.js.map": "/cv-project/static/js/main.8e560140.chunk.js.map",
+    "runtime-main.js": "/cv-project/static/js/runtime-main.104b7cb5.js",
+    "runtime-main.js.map": "/cv-project/static/js/runtime-main.104b7cb5.js.map",
+    "static/js/2.659e255c.chunk.js": "/cv-project/static/js/2.659e255c.chunk.js",
+    "static/js/2.659e255c.chunk.js.map": "/cv-project/static/js/2.659e255c.chunk.js.map",
+    "index.html": "/cv-project/index.html",
+    "static/css/main.f6edb811.chunk.css.map": "/cv-project/static/css/main.f6edb811.chunk.css.map",
+    "static/js/2.659e255c.chunk.js.LICENSE.txt": "/cv-project/static/js/2.659e255c.chunk.js.LICENSE.txt",
+    "static/media/OpenSans-Bold.dbb97fd9.ttf": "/cv-project/static/media/OpenSans-Bold.dbb97fd9.ttf",
+    "static/media/OpenSans-Regular.1b0809d5.ttf": "/cv-project/static/media/OpenSans-Regular.1b0809d5.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.104b7cb5.js",
+    "static/js/2.659e255c.chunk.js",
+    "static/css/main.f6edb811.chunk.css",
+    "static/js/main.8e560140.chunk.js"
+  ]
+}
