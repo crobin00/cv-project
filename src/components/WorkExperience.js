@@ -2,6 +2,7 @@ import WorkAndEducation from './WorkAndEducation';
 import CardInfo from './CardInfo';
 import SubmitButton from './SubmitButton';
 import WorkAndEducationTab from './WorkAndEducationTab';
+import ErrorHandling from './ErrorHandling';
 import { useState } from 'react';
 import uniqid from 'uniqid';
 
@@ -12,9 +13,26 @@ const WorkExperience = (props) => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [responsibilities, setResponsibilities] = useState('');
+  const [error, setError] = useState(false);
+
+  const removeError = () => {
+    setError(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (
+      jobTitle === '' ||
+      city === '' ||
+      companyName === '' ||
+      startDate === '' ||
+      endDate === '' ||
+      responsibilities === ''
+    ) {
+      setError(true);
+      return;
+    }
 
     props.setWorkExperienceArray([
       ...props.workExperienceArray,
@@ -35,6 +53,7 @@ const WorkExperience = (props) => {
     setStartDate('');
     setEndDate('');
     setResponsibilities('');
+    setError(false);
   };
 
   const deleteHandler = (id) => {
@@ -59,6 +78,7 @@ const WorkExperience = (props) => {
 
   return (
     <CardInfo>
+      {error ? <ErrorHandling /> : null}
       {props.workExperienceArray.map((item) => (
         <WorkAndEducationTab
           key={item.id}
@@ -72,17 +92,32 @@ const WorkExperience = (props) => {
       <form onSubmit={handleSubmit}>
         <WorkAndEducation
           firstInput="Job Title"
-          firstInputChange={(e) => setJobTitle(e.target.value)}
+          firstInputChange={(e) => {
+            setJobTitle(e.target.value);
+            removeError();
+          }}
           firstValue={jobTitle}
           secondInput="City/State"
-          secondInputChange={(e) => setCity(e.target.value)}
+          secondInputChange={(e) => {
+            setCity(e.target.value);
+            removeError();
+          }}
           secondValue={city}
           thirdInput="Company Name"
-          thirdInputChange={(e) => setCompanyName(e.target.value)}
+          thirdInputChange={(e) => {
+            setCompanyName(e.target.value);
+            removeError();
+          }}
           thirdValue={companyName}
-          startDateChange={(e) => setStartDate(e.target.value)}
+          startDateChange={(e) => {
+            setStartDate(e.target.value);
+            removeError();
+          }}
           startDateValue={startDate}
-          endDateChange={(e) => setEndDate(e.target.value)}
+          endDateChange={(e) => {
+            setEndDate(e.target.value);
+            removeError();
+          }}
           endDateValue={endDate}
         />
         <div>
@@ -91,7 +126,10 @@ const WorkExperience = (props) => {
             id="responsibilities"
             rows="4"
             cols="30"
-            onChange={(e) => setResponsibilities(e.target.value)}
+            onChange={(e) => {
+              setResponsibilities(e.target.value);
+              removeError();
+            }}
             value={responsibilities}
           />
         </div>
