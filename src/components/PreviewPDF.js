@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
 const PreviewPDF = (props) => {
   return (
-    <Document onRender={() => console.log('rendered')}>
+    <Document onRender={() => {}}>
       <Page size="A4" style={styles.page}>
         <View style={{ marginBottom: '20' }}>
           {/* Name */}

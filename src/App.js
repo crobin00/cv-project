@@ -10,40 +10,16 @@ import { FaCheckSquare, FaEdit } from 'react-icons/fa';
 import { useState } from 'react';
 
 function App() {
-  const testWorkExperience = [
-    {
-      id: 1,
-      jobTitle: 'Test Job',
-      city: 'Test City',
-      companyName: 'Fake Company Name',
-      startDate: '1/1/00',
-      endDate: '1/2/00',
-      responsibilities: 'These are my responsibilities',
-    },
-  ];
-
-  const testEducation = [
-    {
-      id: 1,
-      degree: 'Test Degree',
-      city: 'Test City',
-      institution: 'Australia University',
-      startDate: '1/1/00',
-      endDate: '1/2/00',
-    },
-  ];
-
   const [editPage, setEditPage] = useState(true);
-  const [workExperienceArray, setWorkExperienceArray] =
-    useState(testWorkExperience);
-  const [educationArray, setEducationArray] = useState(testEducation);
+  const [workExperienceArray, setWorkExperienceArray] = useState([]);
+  const [educationArray, setEducationArray] = useState([]);
   const [personalInformationArray, setPersonalInformationArray] = useState([]);
-  const [firstName, setFirstName] = useState('John');
-  const [lastName, setLastName] = useState('Doe');
-  const [phoneNumber, setPhoneNumber] = useState('555-555-5555');
-  const [city, setCity] = useState('Sydney');
-  const [state, setState] = useState('Australia');
-  const [email, setEmail] = useState('johndoe@email.com');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [email, setEmail] = useState('');
   const [personalVisible, setPersonalVisible] = useState(false);
   const [workVisible, setWorkVisible] = useState(false);
   const [educationVisible, setEducationVisible] = useState(false);

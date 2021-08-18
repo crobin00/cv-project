@@ -4,4 +4,6 @@
   background: blueviolet;
   color: white;
   font-size: 0.8em;
+  cursor: pointer;
+  border: none;
 }

@@ -8,6 +8,7 @@
   height: 55px;
   font-size: 1.2em;
   background: rgba(215, 215, 215, 0.8);
+  cursor: pointer;
 }
 
 .button > span {
