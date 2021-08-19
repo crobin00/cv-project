@@ -9,6 +9,7 @@ import {
 } from '@react-pdf/renderer';
 import OpenSans from '../styles/fonts/OpenSans-Regular.ttf';
 import OpenSansBold from '../styles/fonts/OpenSans-Bold.ttf';
+import OpenSansItalic from '../styles/fonts/OpenSans-Italic.ttf';
 import Briefcase from '../styles/images/briefcase.png';
 import Graduationcap from '../styles/images/graduation-cap.png';
 import { format } from 'date-fns';
@@ -22,6 +23,10 @@ Font.register({
     {
       src: OpenSansBold,
       fontWeight: 'bold',
+    },
+    {
+      src: OpenSansItalic,
+      fontStyle: 'italic',
     },
   ],
 });

@@ -124,6 +124,7 @@ const WorkExperience = (props) => {
           <textarea
             name="responsibilities"
             id="responsibilities"
+            placeholder="Enter any work responsibilities here..."
             rows="4"
             cols="30"
             onChange={(e) => {
